@@ -39,7 +39,7 @@ namespace FileHelper
 
             foreach (var people in persone)
             {
-                var newPerson = $"{people.Id}; {people.Name};{people.SurName};{people.Phone};{people.Email};{people.BirthDate};{Environment.NewLine}";
+                var newPerson = $"{people.Id}; {people.Name};{people.SurName};{people.Phone};{people.Email};{people.BirthDate};";
                 lista.Add(newPerson);
             }
             return lista;
