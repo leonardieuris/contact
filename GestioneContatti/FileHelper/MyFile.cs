@@ -27,34 +27,7 @@ namespace FileHelper
             return myList;
         }
 
-        public bool PutOld(string path, List<string> content)
-        {
-            int startLength = ReadFile(path).Count();
-            int insertingLength = content.Count();
-
-            using var stampare = new StreamWriter(path);
-
-            foreach (var item in content)
-            {
-                if (!item.Equals(null))
-                {
-                    return false;
-                }
-                else
-                {
-                    stampare.WriteLine(item);
-                }
-
-            }
-
-            int endingLength = ReadFile(path).Count();
-
-            if (startLength + insertingLength == endingLength)
-                return true;
-
-            return false;
-
-        }
+        
         public bool Put(string path, List<string> content)
         {
 
