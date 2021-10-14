@@ -37,9 +37,27 @@ namespace ContactManager
             return Persone.Max(x => x.Id);
         }
 
-        public bool Delete(Persona persona)
+        public bool Delete(Persona persona)     // Fatta
         {
-            throw new NotImplementedException();
+            var search = Find(persona);
+
+            if (search!=null)
+            {
+                var index = Persone.FindIndex(x =>
+                x.Name.Equals(persona) ||
+                x.SurName.Equals(persona) ||
+                x.Id.Equals(persona) ||
+                x.Phone.Equals(persona) ||
+                x.Email.Equals(persona)
+                );
+                                
+                Persone.RemoveAt(index);
+                return true;
+            }
+            return false;
+
+
+            //return Delete(persona.Id);
         }
 
         public bool Delete(int id)
@@ -62,10 +80,15 @@ namespace ContactManager
                 && _.SurName == surname).ToList();
         }
 
-        public List<Persona> Find(string search)
+        public List<Persona> Find(string search)        //fatta 
         {
-            throw new NotImplementedException();
+            return Persone.Where(x =>
+            x.Name.Contains(search) ||
+            x.SurName.Contains(search) ||
+            x.Phone.Contains(search) ||
+            x.Email.Contains(search)).ToList();
         }
+
 
         public Persona Find(Persona persona)
         {

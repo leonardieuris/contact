@@ -31,11 +31,19 @@ namespace FileHelper
             return persone;
         }
 
-
-
         public List<string> PutPersona(List<Persona> persone)
         {
-            throw new NotImplementedException();
+            var listaPersone = new List<string>();
+
+            foreach (var membro in persone)
+            {
+                var row = $"{membro.Id};{membro.Name};{membro.SurName};{membro}{Environment.NewLine}";
+                listaPersone.Add(row);
+                
+            }
+            return listaPersone;
         }
+
+
     }
 }
