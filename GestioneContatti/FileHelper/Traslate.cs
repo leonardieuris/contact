@@ -35,7 +35,13 @@ namespace FileHelper
 
         public List<string> PutPersona(List<Persona> persone)
         {
-            throw new NotImplementedException();
+            List<string> listaStringhePerCSV = new List<string>();
+
+            foreach (var item in persone)
+            {
+                listaStringhePerCSV.Add($"{item.Id};{item.Name};{item.SurName};{item.Phone};{item.Email};{item.BirthDate}");
+            }
+            return listaStringhePerCSV;
         }
     }
 }
