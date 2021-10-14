@@ -50,5 +50,10 @@ namespace Handler
             _manager.Add(persona);
             
         }
+
+        public List<Persona> Cerca(string str)
+        {
+           return _manager.Find(str);
+        }
     }
 }
