@@ -29,7 +29,25 @@ namespace FileHelper
 
         public bool Put(string path, List<string> content)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using var stream = new StreamWriter(path);
+
+
+                var header = "Id;Name;SurName;Phone;Email;BirthDate";
+
+                stream.WriteLine(header);
+
+                foreach (var item in content)
+                    stream.WriteLine(item);
+
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }

@@ -39,7 +39,7 @@ namespace ContactManager
 
         public bool Delete(Persona persona)
         {
-            throw new NotImplementedException();
+            return Delete(persona.Id);
         }
 
         public bool Delete(int id)
@@ -64,7 +64,13 @@ namespace ContactManager
 
         public List<Persona> Find(string search)
         {
-            throw new NotImplementedException();
+            return Persone
+                .Where(p =>
+                p.Name.Contains(search) ||
+                p.SurName.Contains(search) ||
+                p.Phone.Contains(search) ||
+                p.Email.Contains(search)
+                ).ToList();
         }
 
         public Persona Find(Persona persona)
@@ -104,6 +110,11 @@ namespace ContactManager
             search.Phone = persona.Phone;
 
             return true;
+        }
+
+        public List<Persona> GetAll()
+        {
+            return Persone;
         }
     }
 }
