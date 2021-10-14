@@ -56,9 +56,19 @@ namespace Handler
            return _manager.Find(str);
         }
 
+        public Persona Cerca(int id)
+        {
+            return _manager.Find(id);
+        }
+
         public List<Persona> CercaDaNomeCognome(string nome, string cognome)
         {
             return _manager.Find(nome, cognome);
+        }
+
+        public void Update(Persona nuovaPersona)
+        {
+            _manager.Update(nuovaPersona);
         }
     }
 }
