@@ -55,5 +55,10 @@ namespace Handler
         {
            return _manager.Find(str);
         }
+
+        public List<Persona> CercaDaNomeCognome(string nome, string cognome)
+        {
+            return _manager.Find(nome, cognome);
+        }
     }
 }
