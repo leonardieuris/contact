@@ -39,7 +39,23 @@ namespace ContactManager
 
         public bool Delete(Persona persona)
         {
-            throw new NotImplementedException();
+            Persona p = Find(persona);
+
+            for (int i=0; i< Persone.Count; i++)
+            {
+                if(Persone[i].Name == p.Name &&
+                    Persone[i].SurName == p.SurName &&
+                    Persone[i].Phone == p.Phone &&
+                    Persone[i].Email == p.Email)
+                {
+                    Persone.RemoveAt(i);
+                    return true; 
+                }
+
+            }
+            return false; 
+
+
         }
 
         public bool Delete(int id)
@@ -64,7 +80,22 @@ namespace ContactManager
 
         public List<Persona> Find(string search)
         {
-            throw new NotImplementedException();
+            List<Persona> trovate = new List<Persona>();
+
+            foreach (var eccola in Persone)
+            {
+                if(eccola.Id.Equals(search) || 
+                    eccola.Name.Equals(search) || 
+                    eccola.SurName.Equals(search) || 
+                    eccola.Phone.Equals(search) || 
+                    eccola.Email.Equals(search))
+                {
+                    trovate.Add(eccola);
+                }
+            }
+
+
+            return trovate;
         }
 
         public Persona Find(Persona persona)

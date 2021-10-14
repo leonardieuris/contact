@@ -11,5 +11,21 @@ namespace GestioneContatti
         public string Email { get; set; }
         public DateTime BirthDate { get; set; }
 
+        public Persona()
+        {
+
+        }
+
+
+        public Persona(int id, string name, string surname, string phone, string email, DateTime data)
+        {
+            Id = id;
+            Name = name;
+            SurName = surname;
+            Phone = phone;
+            Email = email;
+            BirthDate = data; 
+        }
+
     }
 }

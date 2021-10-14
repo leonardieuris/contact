@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using GestioneContatti;
 
 namespace FileHelper
 {
@@ -29,7 +30,24 @@ namespace FileHelper
 
         public bool Put(string path, List<string> content)
         {
-            throw new NotImplementedException();
+            
+            using var stampare = new StreamWriter(path); 
+            
+            foreach (var aaa in content)
+            {
+                if (!aaa.Equals(null))
+                {
+                    return false;
+                }
+                else
+                {
+                    stampare.WriteLine(aaa);
+                }
+                
+            }
+            return true; 
+
+
         }
     }
 }
