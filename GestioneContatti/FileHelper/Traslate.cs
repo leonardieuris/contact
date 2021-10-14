@@ -42,6 +42,7 @@ namespace FileHelper
                 listaStringhePerCSV.Add($"{item.Id};{item.Name};{item.SurName};{item.Phone};{item.Email};{item.BirthDate}");
             }
             return listaStringhePerCSV;
+
         }
     }
 }

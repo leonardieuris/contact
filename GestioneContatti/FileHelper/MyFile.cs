@@ -58,21 +58,25 @@ namespace FileHelper
         public bool Put(string path, List<string> content)
         {
 
-            using var stampare = new StreamWriter(path);
-
-            foreach (var aaa in content)
+            try
             {
-                if (!aaa.Equals(null))
-                {
-                    return false;
-                }
-                else
-                {
-                    stampare.WriteLine(aaa);
-                }
+                using var stream = new StreamWriter(path);
 
+
+                var header = "Id;Name;SurName;Phone;Email;BirthDate";
+
+                stream.WriteLine(header);
+
+                foreach (var item in content)
+                    stream.WriteLine(item);
+
+                return true;
             }
-            return true;
+            catch (Exception)
+            {
+
+                return false;
+            }
 
 
         }

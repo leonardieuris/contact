@@ -52,10 +52,46 @@ namespace Handler
             _manager.Add(persona);
         }
 
+        public void Add(Persona persona)
+        {
+            _manager.Add(persona);
+        }
+
+        public List<Persona> Cerca(string nome, string cognome)
+        {
+            return _manager.Find(nome, cognome);
+        }
         public List<Persona> Cerca(string str)
         {
             return _manager.Find(str);
         }
+
+        public Persona CercaPersona(Persona persona)
+        {
+            return _manager.Find(persona);
+        }
+
+
+        public Persona CercaPersona(int id)
+        {
+            return _manager.Find(id);
+        }
+
+        public bool CancellaPersona(Persona persona)
+        {
+            return _manager.Delete(persona);
+        }
+        public bool CancellaPersona(int id)
+        {
+            return _manager.Delete(id);
+        }
+
+        public bool Aggiorna(Persona persona)
+        {
+            return _manager.Update(persona);
+        }
+
+
     }
 
 
