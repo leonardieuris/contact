@@ -12,6 +12,7 @@ namespace UI
         {
             Rub = new HandlerContatti(@"C:\DATA\miaRub.csv");
             Rub.Load();
+
             var personacercata = Rub.Cerca("Gianluca");
             Console.WriteLine("I contatti che rispecchiano la tua ricerca sono:");
             foreach (var item in personacercata)
@@ -21,7 +22,7 @@ namespace UI
 
             Rub.Add("Paolo", "Bianchi", "0515105050","email@mail.it",new DateTime(1991,6,2)) ;
 
-            Rub.Save(); //Da fixare, così cancella tutto e riscrive solo la riga sopra
+            Rub.Save();
 
             Persona persona1 = new Persona
             {
@@ -53,7 +54,7 @@ namespace UI
                 BirthDate = new DateTime(1991, 6, 2),
             };
 
-            //Blocco TEST ADD E FIND
+            //TEST ADD E FIND
             Rub.Add(persona1);
             Console.WriteLine($"Ho aggiunto una persona: {persona1.Name} {persona1.SurName}");
             Console.Write("Trova per nome e cognome: ");
@@ -65,22 +66,22 @@ namespace UI
             Console.Write("Trova usando un ID:");
             scriviPersona(Rub.CercaPersona(persona1.Id));
 
-            //Blocco TEST DELETE
+            //TEST DELETE
             Rub.Add(persona2);
             Console.WriteLine($"La cancellazione per ID ha avuto esito? {Rub.CancellaPersona(1)}");
             Rub.Add(persona2);
             Console.WriteLine($"La cancellazione per oggetto ha avuto esito? {Rub.CancellaPersona(persona2)}");
             Console.WriteLine($"La cancellazione per un ID inesistente ha avuto esito? {Rub.CancellaPersona(3)}");
 
-            //Blocco TEST UPDATE
+            //TEST UPDATE
             Console.WriteLine($"Modifico la persona: {persona1.Name} {persona1.SurName}");
             Console.WriteLine($"L'aggiornamento di un contatto ha avuto esito? {Rub.Aggiorna(persona1Updated)}");
             Console.Write($"La persona di prima ora si chiama: ");
             scriviPersona(Rub.CercaPersona(persona1Updated.Id));
 
 
-
-
+            //Applico cambiamenti sul file
+            Rub.Save();
 
             Console.ReadLine();
         }

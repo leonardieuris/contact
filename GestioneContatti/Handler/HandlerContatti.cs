@@ -32,6 +32,18 @@ namespace Handler
             MyFile.Put(Path, listaStringhe);
         }
 
+        //public void SaveNew()
+        //{
+        //    var listaPersone = _manager.GetAll();
+        //    var listaStringhe = Traslate.PutPersona(listaPersone);
+        //    var listaStringhePreesistenti = MyFile.GetRows(Path);
+        //    foreach (var item in listaStringhePreesistenti)
+        //    {
+        //        listaStringhe.Add(item);
+        //    }
+        //    MyFile.Put(Path, listaStringhe);
+        //}
+
         public void Load()
         {
             var listaStringhe = MyFile.GetRows(Path);
@@ -89,6 +101,11 @@ namespace Handler
         public bool Aggiorna(Persona persona)
         {
             return _manager.Update(persona);
+        }
+
+        public List<Persona> MostraRubrica ()
+        {
+            return _manager.GetAll();
         }
 
 
