@@ -35,7 +35,15 @@ namespace FileHelper
 
         public List<string> PutPersona(List<Persona> persone)
         {
-            throw new NotImplementedException();
+            var people = new List<string>();
+
+            foreach (var item in persone)
+            {
+                var p = $"{item.Id};{item.Name};{item.SurName};{item.BirthDate};{item.Phone};{item.Email};{Environment.NewLine}";
+            }
+
+            return people;
+            
         }
     }
 }
