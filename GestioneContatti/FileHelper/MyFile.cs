@@ -10,6 +10,7 @@ namespace FileHelper
 {
     public class MyFile : IMyfile
     {
+        public int ProvaCommit; 
         public List<string> GetRows(string path) => ReadFile(path);
 
         private List<string> ReadFile(string path)

@@ -9,6 +9,7 @@ namespace FileHelper
 {
     public interface ITraslate
     {
+
         List<Persona> GetPersone(List<string> rows);
         List<string> PutPersona(List<Persona> persone);
     }
