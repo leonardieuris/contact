@@ -51,6 +51,12 @@ namespace Handler
             
         }
 
+        public bool Delete(int id)
+        {
+            return _manager.Delete(id);
+
+        }
+
         public List<Persona> Cerca(string str)
         {
            return _manager.Find(str);
@@ -70,5 +76,6 @@ namespace Handler
         {
             _manager.Update(nuovaPersona);
         }
+
     }
 }
